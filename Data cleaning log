@@ -1,0 +1,31 @@
+General transformations
+
+Common transformations in OpenRefine were used for the majority of the data, starting with the actions of 'Trim leading and trailing whitespace,' 'Collapse consecutive whitespace,' and 'Unescape HTML entities.' This will make the data more machine-readable. 
+A data dictionary will be developed to standardize category names. 
+Missing values for numbers/dollar amounts will be written as 0, while missing values for text will be 'NULL'. In some cases, the number/dollar amounts may be left blank because the value has not been recorded or published yet; in these instances, the value will be written as 'NULL' to indicate that the value is not '0,' but rather the information has not been made available at that time. 
+
+The data will have consistent column (variable) names. Each column represents one variable, and each observation forms a row. 
+Splitting cell values is a valuable tool in Open Refine to separate cells with two values, as was the case with the "Tax Rate" column in the pre-transformed data above. 
+Using the OpenRefine function of transposing cells in rows into columns, we may additionally make necessary changes to data that conform them to tidy data standards.
+For many of the datasets in the collection, the data was first cleaned using some functions in Excel and then imported to OpenRefine for more in-depth data cleaning. For future data sets, this data-cleaning protocol should be the norm to ensure accuracy. 
+
+The following steps were taken for several of the more data-heavy sets:
+
+Excel
+
+-Fix the last row in the set to contain values for ALL COUNTIES TOTAL.
+-Delete the top row which contains no relevant information. 
+-Convert blank or NULL cells to 0.0 to represent that the cell was intentionally left blank because no tax was collected. 
+-Transfer separate data for Processor, Producer, and Retailer sales/taxes to the main spreadsheet (This step was only necessary for FY15-FY17 WA state tax data).  
+-Delete unnecessary columns or rows—like if date or month/date is repeated in different columns.
+-Convert any columns formatted as "Currency" to the "Number" format. 
+
+OpenRefine
+
+-Parse the first row as column headers.
+-Trim leading and preceding white space. 
+-Change titlecase for all columns to uppercase. 
+-Separate columns containing cells with two values instead of one, like the Reporting Period column in WA Tax Data. Rename columns to indicate change. 
+-Re-format date sections to the OpenRefine universal date format. 
+-If necessary, format columns with numerical data as numbers. 
+-Sometimes, OpenRefine will reveal that there are blank rows below the rest of the data that the system identifies as part of the dataset. These rows will also need to be deleted as they contain no important information. 
